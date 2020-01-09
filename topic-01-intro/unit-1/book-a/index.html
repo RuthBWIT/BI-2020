@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Module Introduction  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Assignment">
+          Assignment
+        </a>
+      
+        <a class="item" data-tab="Dataset">
+          Dataset
+        </a>
+      
+        <a class="item" data-tab="Dataset-requirements">
+          Dataset-requirements
+        </a>
+      
+        <a class="item" data-tab="Data-preparation">
+          Data-preparation
+        </a>
+      
+        <a class="item" data-tab="Dashboad">
+          Dashboad
+        </a>
+      
+        <a class="item" data-tab="Report">
+          Report
+        </a>
+      
+        <a class="item" data-tab="Submission">
+          Submission
+        </a>
+      
+        <a class="item" data-tab="Grading-information">
+          Grading-information
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-01-intro/unit-1/book-a/index.html">Assignment </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-01-intro/unit-2/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-02-org-memory/unit-1/book-a/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-02-org-memory/unit-2/book/index.html">Lab-03 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Assignment">
+            <h1>Assignment - Project (50%)</h1>
+<h3>Overview</h3>
+<ol>
+<li>Prepare and analyse data</li>
+<li>Create a dashboard</li>
+<li>Include a report summarising your work</li>
+</ol>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Dataset">
+            <h1>Dataset</h1>
+<h2>Bird Ringing Recovery Data</h2>
+<h3>Background:</h3>
+<p>Bird ringing has been carried out throughout Europe for over a century. The aim of bird ringing is to discover more about birds&#39; lives – e.g. migration routes, longevity and causes of mortality.</p>
+<p>There is a ringing scheme in each European country, some are run by government departments,
+others by universities and some, such as that in the UK, by non-governmental research
+organisations. Because birds do not respect country boundaries, there has to be co-operation
+between schemes and this is overseen by their umbrella body, EURING <a href="http://www.euring.org/">http://www.euring.org/</a>. A bird which is ringed and subsequently found again and reported to the ringing scheme is called a recovery. EURING has established a central collection of recovery data, the EURING Data Bank (EDB) and schemes submit their recovery records to it.</p>
+<p>More information can be read: <a href="http://mei.org.uk/files/pdf/MagpieRecoveryDataSet.pdf">http://mei.org.uk/files/pdf/MagpieRecoveryDataSet.pdf</a></p>
+<p>The data set here is for all Magpies that were ringed as nestlings and subsequently found again. </p>
+<p>Download the file <a href="./archives/magpie.zip">magpie</a></p>
+<p>The file contains:</p>
+<ul>
+<li><p>One spreadsheet</p>
+</li>
+<li><p>The records include the place, circumstances and date of the recovery together, with distance, direction and elapsed time between ringing and recovery.</p>
+</li>
+<li><p>Numerical and categorical data</p>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Dataset-requirements">
+            <h2>General Requirements:</h2>
+<ul>
+<li>Use the dataset provided - mapgies.xls</li>
+<li><p>Choose one user (Key Performance Indicators (KPI&#39;s) will be required to focus on analysis and Dashboard design) e.g. :</p>
+<ul>
+<li>Chief Executive Officer</li>
+<li>Conservationist</li>
+<li>Researcher</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Data prep – cleaning and transformation</li>
+<li>Data analysis – use Excel to provide summary statistics</li>
+<li>Create a Dashboard using Qlikview</li>
+<li>Summary report</li>
+</ul>
+<ul>
+<li>All your own work (The skills to be demonstrated will be based on both lectures and labs as well as self directed learning).</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Data-preparation">
+            <h1>1. Data Preparation</h1>
+<p>This is the process of understanding, collecting, cleaning and consolidating the data for use in analysis.</p>
+<h2>Understanding</h2>
+<p>Understand the data on Magpies from ringing to recovery, e.g. records on dates, travel, condition and distance.</p>
+<h2>Collecting</h2>
+<p>Consult the code book and collect information related to the dataset.</p>
+<h2>Cleaning</h2>
+<p>There may be missing data, unusable data, inconsistent data, requirements to convert text to numbers, improve the records by sorting. </p>
+<h2>Consolidate</h2>
+<p>You may choose to add data to the dataset.</p>
+<p>You may choose a subset of the data sheet on which to perform your analysis. That subset is chosen with the user in mind.</p>
+<h1>Data Analysis</h1>
+<p>Analyse the data in Excel to produce summary statistics and presentation of the data in a visual form. </p>
+<p>Answer questions such as,</p>
+<ul>
+<li>&quot;Which is the fastest bird?&quot; </li>
+<li>&quot;How many Magpies made it to a different country after ringing?&quot;</li>
+<li>&quot;When are trends of recovery at its highest?&quot;</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Dashboad">
+            <h1>2. Dashboard</h1>
+<ul>
+<li><p>While working with the data in Excel you will identify data suitable for a user.</p>
+</li>
+<li><p>The dashboard should provide the same user with a window into the data you have prepared and analysed. </p>
+</li>
+<li><p>Some of what is visible on the dashboard will be the summary statistics from the data prep and analysis work done in Excel.</p>
+</li>
+<li><p>You need to demonstrate proficiency in identifying appropriate KPI’s, as well as the creation and coding of a dashboard.</p>
+</li>
+<li><p>Choose three appropriate KPI’s for your user. Example KPI&#39;s could be:</p>
+<ul>
+<li>Total distance travelled, total time in travel, threats to magpies, magpie location</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Implement visual representations for each KPI, select charts reflecting your data representation.</p>
+</li>
+<li><p>Follow principles of good visualisation design.</p>
+<ul>
+<li><p>Consider colour- data types, for emphasis, positive/negative colour connotations and consistency.</p>
+</li>
+<li><p>Consider how the data will be perceived, interpreted and comprehended by the user.</p>
+</li>
+<li><p>Consider composition, logical layout/hierarchy for the project and size, shape and layout choices of your charts.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Report">
+            <h1>3. Report</h1>
+<p>The report is a guideline for your examiner to follow. It should include detail on: </p>
+<ul>
+<li>Organisation summary, their strategy goals, a selected user and their role, KPI’s chosen and rationale.</li>
+<li>Data preparation -list with brief explanation how you ensured good quality cleaned data.</li>
+<li>Data analysis - sample summary statistics and graphs to show data understanding and preparation.</li>
+<li>Dashboard planning – consider the user, who is going to see dashboard, selection of charts to support KPI’s.</li>
+<li>Dashboard design – description and samples of design and implementation.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Submission">
+            <h1>Project Submission</h1>
+<ul>
+<li><p>The project must be your own work. It will be verified against the Web and other student submissions. If you do re-use techniques sourced externally, include a reference.</p>
+</li>
+<li><p>Upload via Moodle in the Module Assessment and Resources topic area. Include the following:</p>
+<ul>
+<li>Excel data file after data prep was conducted</li>
+<li>Dashboard file</li>
+<li>Summary report</li>
+</ul>
+</li>
+<li><p>All content needs to be included in a zipped folder labeled with your student number.</p>
+</li>
+<li><p>Due date:  Tuesday 3rd December 2019 </p>
+</li>
+<li>Demo date: Tuesday 3rd or Thursday 5th 2019 </li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Grading-information">
+            <h1>Grading Information</h1>
+<ul>
+<li>To guide you with your project, below you have categories of project work with an idea of results:
+<img src="./img/01.jpg" alt=""></li>
+</ul>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

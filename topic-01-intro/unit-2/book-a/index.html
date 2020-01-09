@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Module Introduction  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-01">
+          Lab-01
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-01-intro/unit-1/book-a/index.html">Assignment </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-01-intro/unit-2/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-02-org-memory/unit-1/book-a/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-02-org-memory/unit-2/book/index.html">Lab-03 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-01">
+            <h1>Objectives</h1>
+<p>In our first set of labs we will be getting familiar with Microsoft Excel.</p>
+<p>This tool is used by many organisations to evaluate daily performance and to make critical strategic and operational decisions.</p>
+<p>Spreadsheet software for personal computers has become an indispensable tool for business analysis, particularly for the manipulation of numerical data and the development and analysis of decision models. Please note that Mac versions of Excel do not have the full functionality that Windows versions have.</p>
+<p>Although Excel has some flaws and limitations from a statistical perspective, its widespread availability makes it the software of choice for many business professionals.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Introduction to Excel</h1>
+<p>This first lab will briefly review some of the fundamental skills needed to use Excel. This is not meant to be a complete tutorial; many good Excel tutorials can be found online.</p>
+<h2>The Basics</h2>
+<p>This lab assumes you are familiar with the most elementary spreadsheet concepts and procedures:</p>
+<ul>
+<li>Opening, saving and printing files.</li>
+<li>Moving around a spreadsheet.</li>
+<li>Selecting ranges.</li>
+<li>Inserting/deleting rows and columns</li>
+<li>Entering and editing text, numerical data, and formulas.</li>
+<li>Formating data.</li>
+<li>Working with text strings.</li>
+<li>Performing basic arithmetic calculations.</li>
+<li>Modifying the appearance of the spreadsheet.</li>
+<li>Sorting data</li>
+</ul>
+<h2>Functions</h2>
+<p>We will begin this lab by mentioning some important functions that are applicable to analysis. We will use the Lookup function, see how filtering data is useful and end the lab with an example of using pivot tables on categorical data.
+Functions are used to perform special calculations in cells. Some of the more common functions used in statistical applications include:</p>
+<ul>
+<li>MIN(range)</li>
+<li>MAX(range)</li>
+<li>SUM(range)</li>
+<li>AVERAGE(range)</li>
+<li>COUNT(range)</li>
+<li>COUNTIF(range, criteria)</li>
+<li>AND(condition1, condition2...) returns true if all conditions are true and false if not.</li>
+<li>OR(condition1, condition2...) returns true is any condition is true and false if not.</li>
+<li>IF(condition, value if true, value if false) returns one value if the condition is true and another if it is false.</li>
+<li>VLOOKUP(value, table range, column number) looks up a value in a table.</li>
+</ul>
+<p>The easiest way to locate a particular function is to select a cell and click on the Insert function button on the ribbon. This is useful when you know the name of the function but are unsure of the arguments.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h2>VLOOKUP Function</h2>
+<p>In this lab, we will read in a data file and prepare it for its use in subsequent tasks.</p>
+<p>Download the <a href="./archives/olympics.zip">Summer Olympics Medals 1976 to 2008 data</a>.</p>
+<p>The file contains:</p>
+<p><img src="./img/01.png" alt=""></p>
+<ul>
+<li>Column A is the city where the summer Olympics were held.</li>
+<li>B: The year they were held in.</li>
+<li>C: The particular sport to which the medal belongs to.</li>
+<li>D: The discipline within the sport for example,the sport aquatics may consist of diving, swimming, water polo and so on.</li>
+<li>E: The specific event for the medal.</li>
+<li>F: The person who won the medal.</li>
+<li>G: The gender of the person who won the medal.</li>
+<li>H: The country to which the person belongs,the country is given in terms of three-letter codes.</li>
+<li>I: The event gender, that is, that particular sport, that particular event, was it a mens&#39; event, and womens&#39; event, or was it a gender neutral event.</li>
+<li>J: And finally the medals; gold, silver, bronze.</li>
+</ul>
+<h3>Sort</h3>
+<ul>
+<li>This file is not sorted in any particular order.</li>
+<li>Select the entire first row then do a Shift+Ctrl down arrow.</li>
+<li>And it selects the entire file. Notice this is a big file, spanning across 15,317 rows.</li>
+<li>Go to data ribbon, sort.</li>
+<li>Notice headers as my first row, so make sure headers box is checked in top right corner.</li>
+<li>Sort by year for first level, smallest to largest.</li>
+<li>Add level, sort by sport – A to Z</li>
+<li>Add level, discipline – A to Z. Click ok</li>
+</ul>
+<p><img src="./img/02.png" alt=""></p>
+<p>This file if you look at the bottom left-hand side has more than one worksheet.  One worksheet, which is currently open, called Medalists, the other worksheet is Country Codes.</p>
+<p>The advantage of having multiple worksheets is that it helps organize your data.  For example, if you run a business, one worksheet could have all your sales data. The other worksheet could have your inventory data, the third worksheet could have your cost data, and so on.</p>
+<p>The second worksheet that this file has is called Country Codes. This worksheet contains the three letter Country Code and the corresponding country.</p>
+<p>We&#39;ll use this data to update data in our first worksheet, which is called Medalists. Remember, with multiple worksheets, you can do calculations across worksheets. That is a function or a command in one particular worksheet can access data in another worksheet.</p>
+<p><img src="./img/03.png" alt=""></p>
+<ul>
+<li>Open the Medalists worksheet.  We need to replace this Country Code with the actual country.</li>
+<li>Insert a column here and call it Country.</li>
+<li>Use a VLOOKUP function in Excel to look up the corresponding country, which corresponds to this 3 letter code.</li>
+<li>In cell I2 under country column in Medalist worksheet, type =VLOOKUP, click H2 for country cell, select the range A2 to B211 in country codes tab, choose column 2 and then false.</li>
+</ul>
+<p><img src="./img/04.png" alt=""></p>
+<h3>Description:</h3>
+<p>In cell I2, type equals, VLOOKUP, open parentheses, we wish to look up the Country Code, comma, where do I want to look it up (table array)? It&#39;s in the next worksheet.  Remember, functions and commands can work across worksheets. Go to Country Codes, select this data. The first column is the three letter Country Code. Next column as the corresponding country. Add a comma, once my three letter code from the worksheet Medalist is matched up to this look up table. We need to read the next column. So I give a number two there because its the second column needs to be accessed. We want a fixed reference that is an exact match. Hence I give a false there.</p>
+<pre><code>    =VLOOKUP(H2,&#39;Country Codes&#39;!A2:B211, 2,FALSE)</code></pre>
+<p><img src="./img/05.png" alt=""></p>
+<ul>
+<li>Since we will be copying and pasting this formula we want a fixed referencing to look up this table.</li>
+<li>Insert dollar signs (absolute referencing) in my range reference and my formula is ready.</li>
+<li>=VLOOKUP(H2,&#39;Country Codes&#39;!$A$2:$B$211, 2,FALSE)</li>
+<li>The very first country is Germany.</li>
+<li>Autofill the column.</li>
+</ul>
+<p><img src="./img/06.png" alt=""></p>
+<p>This file is now ready for further analysis, using the filters and pivot tables functionality of Excel.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Data Filtering</h1>
+<p>We will continue with the same data, Olympic medal winners to apply filters on this file.</p>
+<ul>
+<li>Put cursor on spreadsheet. </li>
+<li>Click Data ribbon and choose filter icon.
+<img src="./img/07.png" alt=""></li>
+</ul>
+<ul>
+<li>Drop down boxes have been placed in the columns.</li>
+<li>For example, if you click on drop down box for the column Year, it contains all possible values of years that occur in that column.</li>
+<li>Similarly, if you click on the drop down box against City, all the possible cities that occur in that column. If you click on sport, all possible sports that occur in that column and so on.</li>
+<li>How do I use the filters – if you want to see the medals won by Japan. Go to country column, click the drop down box, Click on the Select All cell there, it deselects all the countries.  Now select Japan.</li>
+<li>Notice the small icon at filter box, so you can see filter has been applied.</li>
+</ul>
+<p><img src="./img/08.png" alt=""></p>
+<h2>Task</h2>
+<ul>
+<li>Continuing here, now filter on Sydney Olympics… what do you select?</li>
+<li>Year – 2000</li>
+<li>Further filter you can look at gold medals… how many??</li>
+</ul>
+<h3>Result</h3>
+<p><img src="./img/09.png" alt=""></p>
+<ul>
+<li>What about the women who won gold medals for Japan? How many?</li>
+<li>The data is still there, it&#39;s just hidden. To unfilter – go to data and click clear.  It will clear all filtering.</li>
+</ul>
+<h2>Task</h2>
+<ul>
+<li>Which country won maximum medals gold medals in boxing in Sydney 2000 Olympics?</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Pivot Tables</h1>
+<p>A pivot table is a program tool that allows you to reorganize and summarize selected columns and rows of data in a spreadsheet or database table to obtain a desired report. A pivot table doesn&#39;t actually change the spreadsheet or database itself. It’s a very powerful data summarisation tool.  It’s a form of reports and online analytical processing (OLAP).</p>
+<p>Be aware they are dynamic, so each time the data changes in you data file, the summary gets updated.</p>
+<p>Using the same file, Olympics data. We will use Pivot tables to get some useful summaries from the data.</p>
+<p>Answer the following question: “I wish to find out how many medals were won in bronze, silver, gold medals in each of these countries across all years?”</p>
+<ul>
+<li>Insert the Pivot Table (Insert menu)</li>
+<li>Make sure all data selected.</li>
+<li>Choose new worksheet</li>
+<li>The Pivot table is placed on the worksheet.  You can see the fields on your right.  </li>
+<li>You can drag fields to the boxes columns, rows underneath the field list. </li>
+<li>Follow this...</li>
+</ul>
+<p><img src="./img/10.png" alt=""></p>
+<ul>
+<li>In this example, Canada has won a total of 304 medals over this period of time, broken up into bronze, gold, silver as per the numbers given.</li>
+<li>One thing to keep in mind is that if there is a team sport, and that team sport consists of, let&#39;s say, 11 members, 10 members and so on, and if a country won the medal in that team sport, then all the individual members of the team are listed as medal winners in this file.</li>
+</ul>
+<h2>Sort</h2>
+<ul>
+<li>You can sort the column labels by clicking outside of pivot table which disables the right hand side pivot table options.</li>
+</ul>
+<p><img src="./img/11.png" alt="">
+- Choose a reverse sorting option
+- You can change order also by manually selecting a column, e.g. silver, drop the column on top of one of the other to show a different sequence:</p>
+<p><img src="./img/12.png" alt=""></p>
+<h3>Task</h3>
+<ul>
+<li>What if we only want the middle tally for the Sydney Olympics in year 2000?</li>
+<li>We can do that by using the report filter option on the right hand side.</li>
+<li>We wish to filter this pivot table using that year, so select the year variable.  Drag it and place it in the report filter area.</li>
+</ul>
+<p><img src="./img/13.png" alt=""></p>
+<ul>
+<li>Do a Sydney Olympics medal tally only for the sport of boxing:</li>
+</ul>
+<p><img src="./img/14.png" alt=""></p>
+<ul>
+<li>What if we want the medal tally broken up across all the sports?</li>
+<li>Show the medals for each sport in each country in 2000 Sydney Olympics?</li>
+</ul>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

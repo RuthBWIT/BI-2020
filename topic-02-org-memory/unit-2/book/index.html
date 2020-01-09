@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> Organisation Memory II  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-03">
+          Lab-03
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+        <a class="item" data-tab="07">
+          07
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-01-intro/unit-1/book-a/index.html">Assignment </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-01-intro/unit-2/book-a/index.html">Lab-01 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-02-org-memory/unit-1/book-a/index.html">Lab-02 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="https://ruthbwit.github.io/bi-msc//topic-02-org-memory/unit-2/book/index.html">Lab-03 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-03">
+            <h1>Cleaning data in Excel</h1>
+<p>Data cleaning</p>
+<p>Cleansing is an important activity for preparing data for analysis. It&#39;s a way to maximise a data set&#39;s accuracy without necessarily deleting information.  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Column and Row Re-arranging</h1>
+<ul>
+<li>From the zip file  <a href="./archives/stats_clean.zip">stats_clean.zip</a>, download Ch-01 - Open Move Data tab</li>
+<li><p>Rearrange the order of the column, e.g. phone number next to department. Rather than inserting a new column, do this in a single action </p>
+<ul>
+<li>Simply select, in this case, the entire column, F, point to the left edge, arrow changes to a four-way arrow.   </li>
+<li>Hold down the shift key and with left mouse button, drag that left edge leftward to the left of the SS# column.</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/01.png" alt=""></p>
+<ul>
+<li><p>The same can be done with copying multiple columns, highlight column “Phone” and “SS#”, hold down shift key, using the four-way arrow, drag the 2 columns to the column after “Building”, when you see the see the I-beam indicator, let the mouse go in that positio2.</p>
+<p><img src="./img/02.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li>Staying in the same workbook - open worksheet, ‘Regional’. We can move rows in this example:</li>
+<li>After looking at the data for awhile you will recognise the need to move rows to suit the data. Row three is about sales, then expenses, then profits. Down in row 9, we&#39;re measuring the percent of sales change, but for some reason we&#39;ve got profits here and expenses here, and this is not quite in-sync with what we see up above. So, in this case, we might want to move the entire row. In other words, but the expenses between sales and profits. Click row 11, and drag upward.  </li>
+</ul>
+<p><img src="./img/03.png" alt=""></p>
+<ul>
+<li>Moving this row may affect the data across – ‘Sales person’</li>
+</ul>
+<p><img src="./img/04.png" alt=""></p>
+<ul>
+<li>Just undo that last action. </li>
+<li>This time move only cells. Reduce width of cells in between so we can see the column for ‘Salesperson’. Try again, by just selecting the cells and dragging up the cells in row 11 A-I, hold down shift key and drag to the position row 10. This time it should not affect the ‘Salesperson’ column.  </li>
+<li>Back to ‘MoveData’ worksheet for another technique. Following the same process of selecting a column F, point to edges for four-way arrow.  This time when you drag it to the position of column D, click right button of mouse for a menu to appear. Choose ‘shift right and move’, SSN to column D. </li>
+</ul>
+<p><img src="./img/05.png" alt=""></p>
+<h2>Transpose</h2>
+<p>The transpose feature is easy to use, and highly recommended, as you work with data, helps to visualize how data might look differently – changing from column to row layout and vice versa. 
+- In this worksheet called Transpose, there’s a list of important contacts within this organization, if these people need to be reached often, we need access to some information about them.  Also the list will grow a little bit from time to time, so this layout is not suitable for extending. Categories will be added too so the list might also grow this way as well, but at some point, maybe the thought occurs, could this data have been entered better if we had put the employee name with the heading, and then employee names underneath it.
+- To allow the list to grow substantially more, than we&#39;re currently seeing, and to improve it so its more readable, we can transpose it. Highlight this data here and copy:</p>
+<p><img src="./img/06.png" alt=""></p>
+<ul>
+<li>Click in cell A7. Then transpose the version, CTRL ALT V, choose transpose from paste special menu. We&#39;re going to be flipping this, imagine a diagonal from the upper left to the lower right, rotating the data along the imaginary diagonal. </li>
+</ul>
+<p><img src="./img/07.png" alt=""></p>
+<p><img src="./img/08.png" alt=""></p>
+<ul>
+<li>We don&#39;t need to keep the old information, although sometimes you might want to compare it, make sure everything got copied. If you have formulas involved, we don&#39;t in this case, but if you do, they too get transposed as well.</li>
+<li>Task: Try out the column L for Salesperson – try paste special for different transpose of the data. </li>
+</ul>
+<h2>Sort</h2>
+<p>In the worksheet ExtraRows, we’ve got some valuable information here. Within each department, for example, ADC we see a list of information about the people who work in that department. And scrolling up and down you can see over in column A how the data is indented and every time we have a new department, we&#39;ve got a new list with a new heading. That heading does repeat the information that we see to the right. </p>
+<ul>
+<li>If we wanted to print this and distribute it to people, we might hide column C, right click Hide.</li>
+<li>If you wanted to work with the data to create a pivot table and do some filtering the worksheet is not usable in its current form. Unhide column C.  </li>
+<li>There are many rows with subtotals ADC, Admin training with empty cells. It would not be efficient to delete each row, there’s hundreds of them. </li>
+<li>To deal with this issue we could sort the data. Pick one of the columns where there’s empty information next to that. Sort based on any column except column A. Choose Department:</li>
+<li>Click in column C, choose the Sort button on Data ribbon:</li>
+</ul>
+<p><img src="./img/09.png" alt=""></p>
+<p>Choose Sort by: Department in A to Z.
+Excel recognises ‘My data has headers’ so row 1 doesn’t get involved…
+Ok</p>
+<p><img src="./img/10.png" alt=""></p>
+<ul>
+<li>What happened to those titles, they’re down at the bottom. Ctrl End. The titles can be deleted or moved to an empty sheet. </li>
+<li>Now we can work with the data without concern about those headings. We can sort the data, we can filter the data, we can create a Pivot Table with this, we can perform other features as well without worrying about those embedded headings that we had.</li>
+</ul>
+<h2>Empty rows</h2>
+<ul>
+<li>Open the EmptyRows tab next.</li>
+<li>In this data we have empty rows, which we need to be removed. We want to highlight all the data. Go to the end, Ctrl End, click in the very last cell, L764. To highlight to the top, hold down shift key and choose Ctrl Home on keyboard. </li>
+<li>Choose sort on data ribbon, sort </li>
+</ul>
+<p><img src="./img/11.png" alt=""></p>
+<ul>
+<li>Sort by Employee Name, A to Z. Excel picks up headers in our list, so make sure that’s checked ok. </li>
+<li>The data&#39;s been sorted. The empty rows are at the bottom and there&#39;s our contiguous list.</li>
+</ul>
+<p><img src="./img/12.png" alt=""></p>
+<ul>
+<li>We cleaned up our data, by getting rid of rows. </li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Replacing data at character level</h1>
+<p>This feature Find and Replace is very useful for replacing a digit or a letter or a word once a column is selected. You can replace a single character with zero, one or many characters. You can imagine all kinds or variations on how you could use this feature. </p>
+<p>The following will show you the capabilities of using the Replace command:</p>
+<ul>
+<li>Download file for this exercise CH-02, open sheet Substitute</li>
+<li>We need to make a change in Column B. Company&#39;s restructuring it&#39;s HR categories, so hourly is no longer an option. Also, we want to change Half-Time to Part-Time.  </li>
+<li>Select Column B, on the Home tab, the far right editing group, go to Find &amp; Select, Replace. </li>
+<li>Replace that phrase Half-Time, it&#39;s got a dash in it, tab, Part-Time, and we went to Replace all of them</li>
+</ul>
+<p><img src="./img/13.png" alt=""></p>
+<ul>
+<li>It will tell us how many it has replaced, in this case 96.</li>
+<li>TASK: In Column H, try replacing D8 with ‘x’. </li>
+<li>There’s also a function called Replace, but it&#39;s not like the Replace command, and strangely enough even though those words are the same, there is another function that&#39;s very similar to Replace, but it&#39;s called Substitute. The Substitute function is like the Replace command, its no faster than the above. Here’s an example:</li>
+</ul>
+<p><img src="./img/14.png" alt=""></p>
+<ul>
+<li>The only time you might use it is if you wanted to state the replacing of a digit that’s appearing at the beginning or at a particular position, e.g. if we just wanted to replace the first ‘8’,see below:</li>
+</ul>
+<p><img src="./img/15.png" alt=""></p>
+<ul>
+<li>Putting in the ‘1’ for instance_num means you will replace all first 8’s with a ‘q’. </li>
+<li>In column K there are &#39;* &#39;. These are special characters , like the &#39;?&#39; in column M. The find and replace does not work with special characters unless you include a tilda, &#39;~ &#39;, see below:</li>
+</ul>
+<p><img src="./img/16.png" alt=""></p>
+<ul>
+<li>TASK: Try replacing the ‘?’ in column M with lowercase ‘x’.</li>
+<li>In column ‘O’ every time we see G and Y, we want to replace it and everything including the characters between them, so cells have 2 characters between them, some have 5.</li>
+<li>We are going to use the wildcard symbol to represent the characters between G and Y. Replace G…Y with ‘x’. See below:</li>
+</ul>
+<p><img src="./img/17.png" alt=""></p>
+<ul>
+<li>The Replace function, works with data differently. The Replace function is unlike the Replace command. The Replace function is based on location or position.    </li>
+<li>Open worksheet Replace.</li>
+<li>We&#39;ve got some code numbers in column B. Some codes are positional, meaning that maybe the third character has to do with a color of an item, the fourth character might have to do with the year that it was made. These could have something to do with size, location, any number of different things. We need to make some changes, see the example below how replace function works:</li>
+</ul>
+<p><img src="./img/18.png" alt=""></p>
+<p><img src="./img/19.png" alt=""></p>
+<ul>
+<li>We can use this replace to replace 3 characters instead of 2. There’s lots of variations on this.</li>
+<li>TASK: Try replacing the second position characters with nothing?  </li>
+</ul>
+<h2>Removing quotes</h2>
+<ul>
+<li>Open the ‘quotes’ worksheet.</li>
+<li>Sometimes when you get data from another source, you might see numbers that have a single quote in front of them. Any number of obscure reasons for this, but when we deal with situations like this, sometimes it&#39;s confusing.  You cannot format the cells with quotes unless you turn them into numbers. </li>
+</ul>
+<p><img src="./img/20.png" alt=""></p>
+<ul>
+<li>You might see green triangles. This is a particular Excel setting that you can turn on or off.  File tab in the ribbon, down the left-hand side, Options. And under the Excel Options, go to Formulas. And at the bottom here, there are error checking rules. This is a bit of a misnomer. Not all of these are errors. There’s a box next to a choice here that says &quot;Numbers formatted as text or preceded by an apostrophe.&quot; </li>
+</ul>
+<p><img src="./img/21.png" alt=""></p>
+<ul>
+<li>This can remove the green triangle warning. </li>
+<li>Otherwise, leave the green warning and check…</li>
+</ul>
+<p><img src="./img/22.png" alt=""></p>
+<ul>
+<li>In this example, choose convert it to a number, highlight all column A and choose.</li>
+</ul>
+<h2>Trailing minus</h2>
+<ul>
+<li>Open worksheet, ‘Trailing minus’. To deal with minus</li>
+<li>Select column A, go to data ribbon, ‘Text to Columns’…</li>
+</ul>
+<p><img src="./img/23.png" alt=""></p>
+<ul>
+<li>Next, until step 3. Then choose ‘Advanced’. </li>
+</ul>
+<p><img src="./img/24.png" alt=""></p>
+<ul>
+<li>Trailing minus for negative numbers. Click ok and finish and they&#39;re gone. And the negative appears here. Can we use this now? </li>
+</ul>
+<p><img src="./img/25.png" alt=""></p>
+<ul>
+<li>Yes we can. Try = this value, plus one! The main idea here was of course, we got rid of those trailing minuses and turn them into minuses that Excel can work with. And the negative data appears the way we want it based on our own formatting.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Adjusting Date-based Data</h1>
+<p>Sometimes when you get information from other sources, the dates are put in in an unusual way and sometimes incomplete. </p>
+<ul>
+<li>Open CH-03 Workbook, tab/sheet: DateFormats</li>
+<li>There are some entries in column A, also in column C, that are similar, they&#39;re in reverse order. They&#39;ve got month and year but not a day associated with them. </li>
+<li>In column E there’s all three of the date parts, but in a different layout. The key to converting these many times is a combination of using a function called DATE as displayed in this generic form here in cell B1 and also some of the text functions, like left and right, that allow us to extract data from the left side or right side of a cell. See the format below:</li>
+</ul>
+<p><img src="./img/26.png" alt=""></p>
+<ul>
+<li>The key to converting these many times is a combination of using a function called DATE as displayed in this generic form here in cell B1 and also some of the text functions, like left and right, that allow us to extract data from the left side or right side of a cell.</li>
+</ul>
+<p><img src="./img/27.png" alt=""></p>
+<ul>
+<li>In cell B2:  =date ... link to the year out of cell A2. To access the four right-most characters, we use the function right. Cell A2 comma 4, meaning pull out those four right-most characters, that&#39;s the year.</li>
+<li>Then we need the month, that&#39;s the two left-most characters. We&#39;re in cell A2 again comma two. Now there&#39;s no day over there, so make it day one, first day of the month, comma one. Right parenthesis. We&#39;ve got a date. </li>
+<li>Copy/autofill this down the column.</li>
+<li>We might also need something almost the same in column D. Since this formula we just created is based on the cell to its left, we can copy this formula we just created in column B. We’ve a different layout. So you can edit it as follows:</li>
+</ul>
+<p><img src="./img/28.png" alt=""></p>
+<ul>
+<li>In column E the date is formatted differently, it includes the 3 parts to the date. Notice J and K showing each month and sequence – this could be helpful here.</li>
+<li>To input a formula in F1 to format column E we could use a lookup table to somehow come up with the actual numbers. E.g., September is nine, the ninth month and so on. This is done inside out here. So in cell E2, how to get Sep to recognise as ‘9’.</li>
+<li>Use a function called Mid. ‘6’ represents the space where ‘S’ for Sep starts in cell E2. ‘3’ represents the 3 characters – ‘Sep’. Hit enter, that will give us ‘Sep’ in cell F2.</li>
+</ul>
+<p><img src="./img/29.png" alt=""></p>
+<ul>
+<li>To replace the ‘Sep’ with ‘9’, we use the Vlookup function. The purpose of the Vlookup is: I&#39;ve got a value somewhere, in other words for Sep…I want to compare it with a table of data somewhere. That table in this example is over in columns J and K. See function format below:</li>
+</ul>
+<p><img src="./img/30.png" alt=""></p>
+<ul>
+<li>Start with: =VLOOKUP(MID(E2,6,3),J:K,2,FALSE)     The ‘2’ means the second column which is ‘K’ and ‘FALSE’ means – choosing exact match. If all goes well, it should have ‘9’ as the answer. Convert this to Number – general format from home ribbon. Just to test this in column ‘F’, autofill down this column ‘F’ to see if it picked up the month as the numerical field:</li>
+</ul>
+<p><img src="./img/31.png" alt=""></p>
+<ul>
+<li>All that, to come up with a month!! To format the Date in column E – edit the formula as follows:</li>
+</ul>
+<p><img src="./img/32.png" alt=""></p>
+<ul>
+<li>At different times your going to have to go to these unusual lengths to achieve Date formatting:</li>
+</ul>
+<p><img src="./img/33.png" alt=""></p>
+<ul>
+<li>To clean up the columns, we won’t want the original column now that we have reformatted. To quickly copy, bring your mouse to any edge of column F, hold it, begin to move it to next column, click right button of mouse to choose option with copying. </li>
+</ul>
+<h2>Text to Column Dates</h2>
+<ul>
+<li>Open sheet, Text to Column Dates</li>
+<li>View column A, C and E. Each have dates, but they’re in unusual formats. It can be difficult to identify which is year and month, especially in row 8 of column A. You have to figure out which is day, month and year.  Brief look can help you identify this overall.</li>
+<li>Try this:    Highlight column A, click on data ribbon, choose Text to Columns. <ul>
+<li>Use wizard- Next and Next. Step 3 to column data format - </li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/34.png" alt="">    </p>
+<ul>
+<li>There are 6 different variations of formatting of how date is formatted. </li>
+<li>Choose YDM as you notice in column A has year first and then finish.</li>
+</ul>
+<p><img src="./img/35.png" alt="">    </p>
+<ul>
+<li>We’ve got dates, you could align it…</li>
+<li>Try column C and F.</li>
+<li>Column C. The day on left and year on right:</li>
+</ul>
+<p><img src="./img/36.png" alt=""></p>
+<ul>
+<li>Col E – year on left side. YMD finish. </li>
+</ul>
+<h2>Date Value and Time Value</h2>
+<ul>
+<li>Open sheet, DateValue.</li>
+<li>Notice on the Home ribbon, you have different ways of dealing with date in the number section.  You can format date – short date, long date. If column A was a date format, we could test it by typing in cell E2: =A2+1  . We would get that number in E2.  Could it be formatted? Click on cell E2 and choose short date. </li>
+</ul>
+<p><img src="./img/37.png" alt=""></p>
+<ul>
+<li>Another way which is faster will clean up dates. The formula is called datevalue. If you’ve had a situation where you got dates that have somehow been treated as text or converted into text. That happens sometimes when you’re copying data through various interim software packages or sometimes moving between workbooks.</li>
+<li>Highlight column B2:b11, start typing =DATEVALUE (it automatically types in cell B2)</li>
+</ul>
+<p><img src="./img/38.png" alt=""></p>
+<ul>
+<li>You get this, it doesn’t look valid…</li>
+</ul>
+<p><img src="./img/39.png" alt=""></p>
+<ul>
+<li>From the home tab, number section, convert into a short date display. We now have dates that are workable…</li>
+</ul>
+<p><img src="./img/40.png" alt=""></p>
+<ul>
+<li>We don’t want the formulas here in column B to work with it. Highlight the cells in B, drag it into another column or move it back to column B on top of itself, right click and choose, “copy here as values only”</li>
+</ul>
+<p><img src="./img/41.png" alt=""></p>
+<ul>
+<li>Now, these are converted, we’ve got dates we can work with. So you could remove the original dates in column A. </li>
+</ul>
+<h2>Times</h2>
+<ul>
+<li>Same thing can happen with times, in cell B13, could we add an hour to this? Add 1/24 of a day?</li>
+</ul>
+<p><img src="./img/42.png" alt=""></p>
+<ul>
+<li>It’s a number – go to the home ribbon again, number section, change to the time format…</li>
+</ul>
+<p><img src="./img/43.png" alt=""></p>
+<p><img src="./img/44.png" alt=""></p>
+<ul>
+<li>That’s workable.</li>
+<li>It could be faster to use timevalue function:</li>
+</ul>
+<p><img src="./img/45.png" alt=""></p>
+<ul>
+<li>Press control +enter, changes selected together at one time.</li>
+<li>Sometimes again in the copying of cells back and forth formats get copied. Highlight both and choose time from home ribbon. </li>
+</ul>
+<p><img src="./img/46.png" alt=""></p>
+<ul>
+<li>If those are not to your liking – the formats can be changed from format cells. AMPM without seconds or 24 hour style.</li>
+</ul>
+<p><img src="./img/47.png" alt=""></p>
+<ul>
+<li>Converting dates that have been entered as text or converted to text need to be cleaned so they’re suitable for working on, same situation with time we use either the function Date Value or Time Value to clean up that information.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Working with Number to Text Conversion Issues</h1>
+<h2>Convert text data to values</h2>
+<p>Sometimes you get data from other sources, you don&#39;t know how they were displayed as text, or why they were converted. Half the time it&#39;s a mistake, or it wasn&#39;t done on purpose. </p>
+<p>There are two techniques to deal with this, if Excel prompts you by indicating a green triangle you can simply select the conversion by highlighting the cells. The other method is pick an empty cell, and copy that and add it to the numbers that are text by way of paste special.</p>
+<ul>
+<li>Open Ch-04 Workbook, Sheet: Text to values</li>
+<li>You will notice green indicators on each cell. </li>
+<li>As mentioned before, in case you don’t see the green triangle, it could be that its disabled. Open Excel Options, Formulas, Error Checking Rules. See below “Numbers formatted as text or preceded by an apostrophe”. Enable this feature as the green triangle prompt is very useful when you want to convert the values.</li>
+</ul>
+<p><img src="./img/48.png" alt=""></p>
+<ul>
+<li>When you accept the options from the green triangle, highlight column B and convert from text to numbers.</li>
+</ul>
+<p><img src="./img/49.png" alt=""></p>
+<ul>
+<li>When you click in column E, notice the Home ribbon, number section. The numbers are formatted as text.  If you click in cell E2 and try to add a dollar sign or a comma, it does not change.</li>
+<li>If you try to work with the values and click in cell F2 and type a formula = E2* 2. Notice the cell F2 format is accounting format, so you can work with these numbers. Add currency, comma etc.</li>
+</ul>
+<p>The oddity about text formatting is that when you apply text formatting, when you apply later formats, it doesn&#39;t really remove the formatting. That sort of sounds like a contradiction. It can be confusing.  How do we clean these up?</p>
+<ul>
+<li>Go to a blank cell, F3, choose copy.</li>
+<li>Highlight the column E2:E20 and choose paste special, Ctrl-Alt-V. We are copying a blank cell</li>
+</ul>
+<p><img src="./img/50.png" alt=""></p>
+<ul>
+<li>Choose Add (we’re adding what we’re copying – blank cell). The numbers will shift but nothing different to note. </li>
+<li>What you will notice is, if you click in cell E column and go to Home ribbon to change formatting, you can add commas and currency etc. </li>
+<li>We have converted these into standard numbers and removed the text formatting.</li>
+</ul>
+<h2>Add leading zeroes: Zip codes, other numerical codes and text codes</h2>
+<p>When you get data that should&#39;ve had leading zeroes but doesn&#39;t, it poses some problems and some different issues occur. We need to clean up the data for multiple reasons on the following worksheet “Leading Zero’s”:</p>
+<ul>
+<li>Open tab/sheet – Leading Zero’s</li>
+<li>Column A - Someone entered zip codes here, maybe it was just essentially looking at a sheet of paper, typing an entry, pressing Enter, not looking up, and here that person typed 02299 in row 5, and 00766 in row 7. What happens to the leading zeroes? Well they&#39;re not there. These are in so-called general format, no special formatting was applied.</li>
+</ul>
+<p><img src="./img/51.png" alt=""></p>
+<ul>
+<li>A Special format could have been applied. Right click column A. format cells.</li>
+</ul>
+<p><img src="./img/52.png" alt=""></p>
+<ul>
+<li>Number tab, choose special under category. There’s 2 variations on zip codes. Try the first one, with 5 digits.</li>
+</ul>
+<p><img src="./img/53.png" alt=""></p>
+<ul>
+<li>Watch the entries in column A, they now have leading zero’s. That means when your typing these you don’t have to type the leading zero’s.</li>
+<li>Column C – these are ID numbers – somebody was typing these and typed leading zeroes but we don’t see them there. We want them to appear the way they appear in column E. How can this be fixed – there’s 2 ways. </li>
+</ul>
+<p><img src="./img/54.png" alt=""></p>
+<ul>
+<li>The first way to try is longer, its done by using the function TEXT. </li>
+<li>TEXT allows us to pick up numerical information, but we have to provide the form, we want the format to be 6 zero’s. Each zero stands for a numerical representation of characters.</li>
+<li>=text(C2, “000000”)</li>
+<li>Autofill down the column</li>
+</ul>
+<p><img src="./img/55.png" alt=""></p>
+<ul>
+<li>The other method: highlight column C – right click, format cells and go to custom</li>
+</ul>
+<p><img src="./img/56.png" alt=""></p>
+<ul>
+<li>This will only work if all our entries are numerical, as with the previous technique too. </li>
+<li>Off to the right, in column G. We want column G to look like column I.  There is 9 characters. </li>
+<li>We need a function to put in as many zero’s as we need.</li>
+<li>Try this formula in cell H2: =Rept(9,4)    We get value 9, repeated 4 times. If it’s a letter or symbol we must put in “” double quotes. What if we put in an unusual character, try: =Rept(“%”, 4)</li>
+<li>Remove the formula you tried out in cell H2.  We want a 9 character representation here. You will need to begin by saying you want to put in a zero, but we’re not sure how many ties, so we need another function. How wide is the entry? Or how long is the entry?</li>
+<li>Ultimately we want nine characters, if cell G2 has 6, we need to repeat zero 3 times. We use a function call LEN (think of length)</li>
+</ul>
+<p><img src="./img/57.png" alt=""></p>
+<ul>
+<li>The REPT function says, let&#39;s repeat this character, how many times. The number nine minus the length of the entry already. What if it has nine? Look at the entry in row 5, in G5 we see an entry there, it has nine characters. What is nine minus this length of the cell? We put in the number zero, zero times. And will it work here without the double quote? When you work with numbers often you don&#39;t need to use the double quote. The &amp; symbol allows us to join data from different locations, in this case G2.</li>
+<li>Copy down the column. They should be all 9 entries wide. In some cases with letters it doesn’t work, row 23. Letters are different. The main idea we’re able to reconstruct the numbers and leading zero’s. </li>
+<li>After creating the information the way we want it to appear, we can paste it back on top of the old data. We don’t want formulas, use right mouse button, drag up or down, let go of the mouse button and choose ‘Copy Here as Values Only’. Keep the results and you have the data looking the way you want it. </li>
+</ul>
+<p><img src="./img/58.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Cleaning up Text Data</h1>
+<p>Cleaning up text data does have the advantage of many different Excel functions called text functions</p>
+<ul>
+<li>Open Ch-05 Workbook, Sheet: Textfunctions</li>
+<li>Different techniques are used here for using Text functions. The main issue with this sheet is uppercase.</li>
+<li>Start with column A.  The function is proper. Type the following in column B:</li>
+</ul>
+<p><img src="./img/59.png" alt=""></p>
+<ul>
+<li>Copy this down the column. All looks ok, except one exception row 4. “Mcd”. You might have to manually override this.  There’s a flash fill feature that we will try later that will do this more efficiently. </li>
+<li>Column D – is different because it has space issues. E.g. row, 3, 5 and 8.</li>
+<li>To clean these up the function is TRIM. We will include PROPER as we need to sort the capitals.</li>
+<li>See the following:</li>
+</ul>
+<p><img src="./img/60.png" alt=""></p>
+<ul>
+<li>Ctrl key + enter (the active cell does not move downward)</li>
+<li>We dealt with the extra spaces in many of those entries, and we uncapitalized the letters</li>
+<li>Column G - we might want to simply capitalize the letters there. Use a function called upper. At the same time, we need to deal with spaces, if we use trim we get extra sp61e:</li>
+</ul>
+<p><img src="./img/61.png" alt=""></p>
+<ul>
+<li>Instead try the UPPER function and 2 other functions to pull the data together:</li>
+</ul>
+<p><img src="./img/62.png" alt=""></p>
+<ul>
+<li>Copy down.</li>
+<li>You can see a list of text functions listed at the far right that allow us to deal with data at the character level. </li>
+</ul>
+<h2>Two new functions: CONCAT and TEXTJOIN to combine data</h2>
+<p>If you&#39;re using Office 365 and you&#39;ve installed upgrades that were introduced in 2016, you&#39;ve got access to two new functions in Excel. One is called concat, the other one is called textjoin.</p>
+<ul>
+<li>Open sheet: CONCAT-TEXTJOIN</li>
+<li>To see if they are available to you, go to the formulas tab, and you should see them in the category called text. If your using standard Excel 2016, you will see instead concatenate.</li>
+</ul>
+<p><img src="./img/63.png" alt=""></p>
+<ul>
+<li>In column E – we would like to create a new ID comprised of these three cells, with the existing concatenate function, and you can use this even if you have installed the new functions.</li>
+<li>Using either concat or concatenate formulas, start typing concat and it appears in the list…</li>
+</ul>
+<p><img src="./img/64.png" alt=""></p>
+<ul>
+<li>Just to compare the 2 formulas. We will try the following:</li>
+<li>In F2, use a formula called formula text so that we have reference. We’re simply going to refer to this cell so we can display that actual formula over in F2.</li>
+</ul>
+<p><img src="./img/65.png" alt=""></p>
+<ul>
+<li>Back in E column we will try concat – in cell E3, try =concat(B3:D3)  Instead of listing individually the range can be highlighted. If you need to remove the middle cell in the range you would remove ‘:’, type the following =concat(B3,D3)</li>
+<li>Across the sheet we will use the new function, one that you can only try if you have the upgrade to Excel 2016 or Office 365 version. We begin in in cell L we will concat column I, J, K. We want a space between each one:</li>
+</ul>
+<p><img src="./img/66.png" alt=""></p>
+<ul>
+<li>Copy these down the column</li>
+<li>In some cases were there are no initials in column J, we have spaces appearing between first and last name in our result in column L. This is where TEXTJOIN comes in.</li>
+<li>This new function, textjoin in column M, begins with delimiter, we want to pull this data together with spaces, double-quote, space, double-quote, comma, ignore empty text, so if there&#39;s an empty cell, as there is in column J from time to time here, we want to ignore it, and that option is true. Now you can either click true, and tab it into place, that&#39;s one option, then pick up the text we want to concat- the 3 cells I2:K2. This will pull together the data from those 3 cells, along with the space between them, but ignore cells that have empty text in them.</li>
+</ul>
+<p><img src="./img/67.png" alt=""></p>
+<ul>
+<li>Type TRUE to ignore empty cells</li>
+</ul>
+<p><img src="./img/68.png" alt=""></p>
+<ul>
+<li>Copy down column M</li>
+<li>Now see row 3 Karen Chambers, only 1 space between.</li>
+<li>Just display this in column N, using the formula, =FORMULATEXT(M2) so you can view the formula format in column M.</li>
+<li>To make the TEXTJOIN formula more efficient you can take the ‘TRUE’ out. </li>
+<li>Try choosing FALSE, where you did want to include empty cells, or type ‘0’. Immediately you can see the space back when you copy formula down. Just undo and go back to the True or space to deal with no spaces.</li>
+<li>In column E if we were to change the format in column E to include a “-“, see the difference between concatenate and textjoin format. TEXTJOIN is simply easier to create:</li>
+</ul>
+<p><img src="./img/69.png" alt=""></p>
+<h2>Combine data via concatenation</h2>
+<ul>
+<li>Open sheet CombineNames</li>
+<li>In addition to using functions like CONCAT or CONCATENATE or Text Join to bring together information from different columns, you can also use a feature referred to as concatenation.</li>
+<li>In column D, we need to pull together the data from columns A, B, and C. And we can do this by using the ampersand symbol, that&#39;s the and symbol typically found above the number seven key on most keyboards. We want to bring together this data, and in a particular order. Notice there&#39;s a middle initial here. We might have some issues with that.</li>
+<li>Widen column D. </li>
+</ul>
+<p><img src="./img/70.png" alt=""></p>
+<ul>
+<li>Complete entry, Ctrl+enter</li>
+<li>Copy down the column</li>
+<li>There are trailing spaces in column D now</li>
+</ul>
+<p><img src="./img/71.png" alt=""></p>
+<ul>
+<li>So following the first name, that&#39;s the B2, instead of putting in a space, because sometimes we will have a middle initial and sometimes not, following this ampersand right here we&#39;re going to put in an If function to see if that cell C2 is blank. We’re also going to use a function called blank.</li>
+</ul>
+<p><img src="./img/72.png" alt=""></p>
+<ul>
+<li>Copy down the column, you should see the period, “.” after the initial every time.</li>
+<li>Like before, we want to throw away the formula but keep the results. Highlight column, drag any edge, left, right, until you bring it right back on to itself in column D, release the right mouse button, “copy here as Values only”.</li>
+<li>Off to the right, not exactly related to cleaning up data, but something you might want to work with numbers like this, e.g. in an invoice where you have a list of Unit Prices and you want to put in a calculation.  The display you would like could be one in cell G5. Now, this is simply typed in, we don&#39;t want to be doing that all the time, but let&#39;s create this same look by using concatenation. </li>
+<li>A simple calculation to multiply the unit price by number is as follows: in cell G2, =E2* F2   To see that along with text, do the following:</li>
+<li>You can put “ “ quotes in for text.  To add the currency you need the text function. The Text function says I&#39;ve got some data, here it is here, it&#39;s a numerical bit of information, so let&#39;s display this according to a format. If you&#39;re familiar with formatting in Excel, the pound sign symbol, when used in other symbols, means suppress the display of leading zeroes. So let&#39;s say that sometimes these numbers could go into the tens of thousands, maybe even hundreds of thousands. </li>
+<li>We&#39;re putting in an entry here, three pound signs, comma, then two more, and let&#39;s say that all these numbers are going to be over a dollar, so we&#39;ll put in a zero right here. Possibly we could have some very small numbers here, that might be $8.75. This format is not exactly obvious at first, it will display the information such that if it were unusually large, we wouldn&#39;t have leading zeroes in front of it. So it takes this entry(E2* F2), converts it into text, but displays it in this kind of a format in the process.</li>
+</ul>
+<p><img src="./img/73.png" alt=""></p>
+<ul>
+<li>Copy it down to the next row:</li>
+</ul>
+<p><img src="./img/74.png" alt=""></p>
+<ul>
+<li>One more thing you might want to consider in this format is to put in a dollar sign, select both G2 and G3, press F2 to edit:</li>
+</ul>
+<p><img src="./img/75.png" alt=""></p>
+<ul>
+<li>What happens if the numbers are lower, if the total price is under $100. Change the number to 5 in cell f3. The entry over to the right, changes to $49.75 and if you changed the unit in F2 to 545</li>
+</ul>
+<p><img src="./img/76.png" alt=""></p>
+<ul>
+<li>Like before we could display this formula in the column beside in H. </li>
+<li>=FORMULATEXT(G2)</li>
+</ul>
+<p><img src="./img/77.png" alt=""></p>
+<ul>
+<li>We will edit the function in cell G3 to make it more efficient, is to replace the function TEXT with DOLLAR.  We can get rid of the format that we had ### etc. See below:</li>
+</ul>
+<p><img src="./img/78.png" alt=""></p>
+<ul>
+<li>This has nothing to do, really, with cleaning up data, but it does show us how we can use that ampersand symbol, sometimes referred to as the concatenation symbol, to pull data together.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Split data into columns with the Text to Columns feature</h1>
+<p>The common problem with data that you get from other sources is too much information in the same column. Now, that&#39;s not always bad, and we have to take this on a case by case basis.</p>
+<ul>
+<li>Open sheet, Text to Columns</li>
+<li>In column A, we have some names, in some cases there could be a larger amount of text. We cannot sort this list by name in its current state because the names are in first name, last name order. We could, however, split these into separate columns, and then we could either rejoin them in reverse order, or maybe just leave them in separate columns, then we can sort our list by last name. Text to Columns usually begins with the idea that we probably will need an extra column, typically to the right. In this case, we&#39;re going to split these names. Notice that none of them have middle initials, they&#39;re all single names and we don&#39;t have any Mary Jo&#39;s or anything like that, multiple names, just first name, last name. </li>
+<li>Select column A, data tab – in the ribbon, choose Text to Columns, choose delimited, then next. The delimiter in this case, the characters that separates the names is space. </li>
+</ul>
+<p><img src="./img/79.png" alt=""></p>
+<ul>
+<li>Check out the preview to see… Click finish and see the data split.</li>
+<li>In column D it’s a little bit more problematic, some of the people have middle initials. So we&#39;ve got at least two extra columns to the right, so that should work okay. But the way these are separated might be a little bit different here.</li>
+<li>Begin my using the “,” to split these in column D. It depends on what your looking for, we might have last name first, first name next, then initials…</li>
+<li>Select column D, data tab ribbon – text to columns, this time we use comma</li>
+<li>Check the preview, try comma and space together or space without comma to compare.</li>
+</ul>
+<p><img src="./img/80.png" alt=""></p>
+<ul>
+<li>Click finish.</li>
+</ul>
+<p><img src="./img/81.png" alt=""></p>
+<ul>
+<li>In column G, we have a bigger list of contact information. We cannot sort this in this state by state or zip code, so we’ll split these into different columns. </li>
+<li>Highlight G, Data ribbon, Text to Columns</li>
+<li>If we use space, it might look good at first, but some of those city names are multiple, like Wheat Ridge, San Francisco. Is there a North Las Vegas in there? But if we use space and comma both, it looks like we might have some problems. Let&#39;s take out space. Let&#39;s choose comma. we can&#39;t do everything at once at all times here, but it looks like comma will at least isolate the cities for us. So we&#39;re using comma this time, Finish</li>
+</ul>
+<p><img src="./img/82.png" alt=""></p>
+<p><img src="./img/83.png" alt=""></p>
+<ul>
+<li>Our list looks like this, our cities are isolated. Readjust the column width here, let&#39;s do the same thing all over again.</li>
+<li>Highlight H column, looks like we have a leading space.  Ribbon – Text to Columns – Delimiters – choose space. See preview. Separated the state and zip. </li>
+</ul>
+<p><img src="./img/84.png" alt=""></p>
+<ul>
+<li>Now we have a blank column H.  We can remove it or move over I and J  on top of H.</li>
+</ul>
+<p><img src="./img/85.png" alt=""></p>
+<ul>
+<li>We can sort it by zip or state or possibly city first, then by state to get them in alphabetical order within each state. These techniques are really necessary at times.</li>
+</ul>
+<h2>Flash fill</h2>
+<p>Flash fill is a relatively new feature in Excel, introduced in Excel 2013. It is a valuable tool, and a great addition to any situation where you need to restructure data that&#39;s in columns</p>
+<p>You&#39;ll find it on the Data tab in the Data Tools group, Flash Fill, it automatically fill in values.</p>
+<ul>
+<li>Open sheet Flashfill</li>
+<li>Look at the data in column A</li>
+<li>In Cell B2, If we wanted to have the name, Amy Ryan, formatted with the first letters of each name capitalized, and the order reversed, type in cell B2 “Ryan comma space Amy”.</li>
+<li>One of three different ways to use Flash Fill is to complete one entry, start the next one, starting typing the capital W, the first letter of the last name of the next person, capital W. Excel sees what your doing…</li>
+</ul>
+<p><img src="./img/86.png" alt=""></p>
+<ul>
+<li>You can see clearly what’s happening. Press enter to accept the entries.</li>
+<li>Notice a few things it did not do. Hyphenated names didn&#39;t work here. The B in O&#39;Brien is not capitalized, that occurs later. Everything else seems to be okay. Excel is not yet programmed the first D in McDonald to be capitalized. But in other respects, this works very well.</li>
+</ul>
+<p>It’s best to either have them in separate columns like D and E, or to have them in reverse order the way we see over in Column B. Column A is a huge disadvantage because we cannot sort the list by last name.</p>
+<ul>
+<li>In column F, cell F2, type Mark Baker, press Control + Enter, so the active cell doesn&#39;t move, and then slide up to the feature Flash Fill on the data ribbon, click it. Check out the hyphenated names – it worked perfectly, see row 11. Ted O’Brien in row 4 worked.</li>
+<li>Column H – this is similar to what we did in column A but this time we have issues. You can see the spaces in row 4 too many spaces between Hansen and Sheila. There are leading spaces there.</li>
+<li>In column I, start typing, Ryan, Amy. Use shortcut for flashfill, Ctrl+E</li>
+<li>The spaces are not being dealt with row 4.  They are in row 15 with Cathy Watanuki, they are. So perhaps a little bit of unpredictability about how space issues. We&#39;re not sure what happens to trailing spaces. Is there one behind Marilyn Fier in row 5? If you check column I the trailing space was taken care of. </li>
+<li>Undo. Drag Mary Todd-Jones up to top of list H (before Ryan, Amy) Start typing Todd-Jones, Mary in I2:</li>
+</ul>
+<p><img src="./img/87.png" alt=""></p>
+<ul>
+<li>Press Ctrl+E or flashfill.</li>
+<li>The result is a disaster – see how it repeats names in an odd way.</li>
+<li>Undo, change the order.</li>
+<li>Drag Amy Ryan to top of the list.</li>
+<li>Retype the entry in I2, Ryan,Amy. Ctrl+Enter Flashfill</li>
+<li>In general it works well, but we shouldn’t have spaces.</li>
+<li>In column K- we should never see City, State Zip in same column. You cannot search for either of them attributes.</li>
+<li>Try the following, type in L, M, N:</li>
+</ul>
+<p><img src="./img/88.png" alt=""></p>
+<ul>
+<li>Click in Kenton, Ctrl+enter, flashfill, it picks up the cities. It&#39;s recognized that we&#39;ve typed everything to the left of the comma, so it does pick up the two city names, like San Francisco, Colorado Springs.</li>
+<li>Flash fill column M and N. So we can get rid of column K</li>
+<li>Column Q- type in the state code CO. Now you recognize in the list to the left, everything is upper case. Will Excel read this as picking up the first two letters of the city name, or will it pick up the state code? If I complete this with Control + Enter, and press Flash Fill, looks like it&#39;s picking up the first two letters of the city name. If you type two rows of States, CO, CO, Excel does not pick up on it in Flashfill.</li>
+<li>Type Arvade in Q2, State CO in R2, in column S, if you were to type the zip Flashfill may get confused and look to the right, so its good to have a blank column to the right</li>
+</ul>
+<p><img src="./img/89.png" alt=""></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="07">
+            <h1>Fill in Missing Title Information</h1>
+<ul>
+<li>Open Ch-06 Workbook, Sheet: Missing Titles</li>
+<li>In Column A as you scroll down the list you see a new department name here that applies to the person in column B, and the list of the persons below it. There’s a lot of names in some cases.  Whether this is considered good or bad the sheet has arrived to you for cleaning. The issue with this is if you wanted to sort by Compensation or Employee Name, you going to lose track of which person is in each department. Try sorting just to see?  It can move an employee out of the wrong department. Undo whatever you sorted!</li>
+<li>There’s a list of about 25 departments. There are a couple of shortcuts that we can use. Before we try a  technique for selecting blank cells, we will deal with column A. Select the cells as follows:</li>
+</ul>
+<p><img src="./img/90.png" alt=""></p>
+<ul>
+<li>And press Control + enter. All four cells will get data from the cell above.</li>
+<li>Undo, this time, select all of column A and use an unusual feature in Excel found on the Home tab, far right button, Find &amp; Select, Go To Special.</li>
+</ul>
+<p><img src="./img/91.png" alt=""></p>
+<ul>
+<li>Or instead to get there faster, press function key f5, then ‘Go to Special’.</li>
+</ul>
+<p><img src="./img/92.png" alt=""></p>
+<ul>
+<li>Blanks, ok.</li>
+<li>Just the blank cells get selected in column A down to the last row 742 to check!!</li>
+<li>In cell A3 write a formula =A2   then press Ctrl+enter, which should fill in all the blank cells.</li>
+<li>Not quite finished as most of these are formulas, except the original entries. </li>
+<li>Like before lets copy column A over itself. Select Column A, and now with the right mouse button, I&#39;m simply going to drag this temporarily into Column B and then right back on top of itself. In one smooth motion, drag into Column B then right back into Column A, let go of the right mouse button, Copy Here as Values Only. </li>
+<li>Now we can work with the data. And if we happen to go into Column B and sort by employee name, it keeps its department title in column A.</li>
+</ul>
+<h2>Add phone no’s and SS# consistently</h2>
+<p>When you&#39;re trying to match up different lists, you sometimes run into problems if you&#39;re trying to compare lists based on either Social Security numbers or phone numbers.</p>
+<ul>
+<li>Open Sheet: SS# and Phone</li>
+<li>Column A has Social Security Numbers. And also in column F. Imagine these are different lists and possibly they&#39;re on different worksheets, but for ease of use, here, we&#39;ve put them on the same worksheet.</li>
+<li>Here&#39;s what we&#39;d like to be able to do. For the list on the right, we&#39;d like to pick up the employee&#39;s name and put it in the list. And we can see that there&#39;s a Social Security number in the list on the right, in column F, it&#39;s also in the list on the left, column A. We don&#39;t necessarily know if every Social Security number that&#39;s here is going to be found in the other list. The list on the left is organized by employee name, it&#39;s in alphabetical order. The list on the right is in order by Social Security number. If we use the function called match, to see, for example, if this Social Security number in cell F2 is found in the other list.</li>
+<li>The match function allows us to compare data in one location, in this case it&#39;s cell F2, with the list over in column A. Widen column E and start typing the following:</li>
+</ul>
+<p><img src="./img/93.png" alt=""></p>
+<ul>
+<li>Note: chose ‘exact match’ hit enter. N/A – that SS# is not found. Double click the lower right hand corner to fill the cells in column E. All cells have N/A- not working. Now you might notice in cell F11 a SS# that is the same as A2 so why didn’t they match up?</li>
+<li>Look in cell A2 and look in formula bar – that is the content 123777777, no dashes and yet dashes appear in cell A2. That&#39;s because this cell and all the cells in column A have been formatted with a special format. Over in column F, click one of these, we see actual dashes up in the formula bar. So the reason we can&#39;t match these up is because cell F12 and the cell over in A2 are not equal to one another. </li>
+<li>Remove the dashes in column F – select column F: Home tab, Find and select (far right), Replace, Replace Dash with nothing.</li>
+</ul>
+<p><img src="./img/94.png" alt=""></p>
+<ul>
+<li>They&#39;re all done. 1,396 replacements. Look what&#39;s happened in the background. The column F has found matches. In column E, the answer in each cell corresponds with the row number. </li>
+</ul>
+<p><img src="./img/95.png" alt=""></p>
+<ul>
+<li>Cell E11 has matched to ‘2’.</li>
+<li>Next stage is to select column F and fix the dashes. – Highlight column F, Ctrl+1 to go to format cells. Number tab, Special, Social Security Number.</li>
+</ul>
+<p><img src="./img/96.png" alt=""></p>
+<ul>
+<li>This applies the format, the dashes. Our matches work properly, we’re all set. </li>
+<li>You could also use Vlookup. </li>
+</ul>
+<p><img src="./img/97.png" alt=""></p>
+<ul>
+<li>You might not be familiar with vlookup, here we indicate what it is we&#39;re looking up, this is the location of the table array, over in columns A and B. Then we put in the column number, reading from left to right. This case it&#39;s the second column that we&#39;re trying to get data out of.Comma, and if it is an exact match, we put in the word false, or you type zero, either way. You could tab in false or type, it doesn&#39;t have to be capitalized. Or put in zero, either way. Press enter.</li>
+</ul>
+<p><img src="./img/98.png" alt=""></p>
+<ul>
+<li>It finds ‘Richard Morrow’. Check to see if it matches?</li>
+<li>Over to the right. suppose we are comparing the list from columns F through I and then M through O. What they have in common is a phone number. They are formatted with a special format. In column O, this has been applied previously. We can jump to Format Cells, Control + One and see that it has been applied.</li>
+<li>If we try to match up these phone numbers, we will run into the same issue as before and ultimately, it&#39;s going to be the same kind of solution. We&#39;re trying to match up a phone number from G2, comma, comparing it with a list over in column O, comma, we need an exact match, zero. We&#39;re not going to get it. Copying down the list, that&#39;s not going to work at all. </li>
+</ul>
+<p><img src="./img/99.png" alt=""></p>
+<p>But if we change the data in column G, We need to get rid of the left parenthesis, the parenthesis and space, and the actual dash. That&#39;s going to be three replaces, but it&#39;s going to happen pretty fast. Find and Select, again on home ribbon. </p>
+<p><img src="./img/100.png" alt=""></p>
+<ul>
+<li>Replace all dashes with nothing.</li>
+<li>Now replace the right parenthesis</li>
+</ul>
+<p><img src="./img/101.png" alt=""></p>
+<ul>
+<li>Now all the left parenthesis, repeat like above with left parenthesis.</li>
+<li>See the formulas pop into place in column K.</li>
+<li>Now we can compare…</li>
+<li>Note in column G, the work involved in typing those entries with spaces, () parenthesis. Any change to this could affect it. Be aware any time you&#39;re working with phone numbers and Social Security numbers, be sensitive to the idea, they could be entered with actual dashes, and parentheses, and spaces, and so on, but ideally, you want to have those entered strictly as numerical information and then apply a format.</li>
+<li>It’s advisable that you set up a format at the beginning from Control + one- format cells, special, phone or whatever your typing. </li>
+</ul>
+<h2>Remove duplicate rows from a list</h2>
+<ul>
+<li>Open sheet HR List Duplicates</li>
+<li>You can tell by its name what’s involved in this sheet.  There are some duplicate records and that’s a common problem when you work with lists, particularly if different people have been involved in updating the list, copying the list, moving them back and forth and so on. And very often, when you do see a duplicate record you recognise it&#39;s adjacent to the current one. Slightly different in this case, a little bit unusual, but here&#39;s Susan Carr here in row two, and in row 7, if you hold down the Control key, just for emphasis here, here&#39;s another Susan Carr. It’s a duplicate record across.</li>
+</ul>
+<p><img src="./img/102.png" alt=""></p>
+<ul>
+<li>We sorted this list by Employee Name, these would have come together. But the feature to get rid of duplicate rows doesn&#39;t require that these be adjacent to one another. If it was just the one record repeated, you could just remove the duplicate row. But the concern is how many others do we have? There’s 700 rows there…</li>
+<li>In row 758 and 760 there’s Edward Hayes twice. </li>
+<li>Click in column A, data ribbon, AZ in sort and filter and you see some duplicates</li>
+<li>This is not the best way to track them down.</li>
+<li>Click in the data and press Control + A to highlight all the contiguous data. You will need to make sure your list is in a contiguous chunk of cells. When you scroll down you can check. You don’t need to do this every single time if you’ve worked with the list and you know its contiguous. </li>
+<li>Data ribbon, remove duplicates.</li>
+<li>Lets do this for all the columns here. In other words when all the column entries are the same, that&#39;s when we want to get rid of the duplicate. Select All. Click ok.</li>
+</ul>
+<p><img src="./img/103.png" alt=""></p>
+<ul>
+<li>The wording might be a little bit strange, 21 duplicate values found and removed, that makes it sound like it&#39;s found 21 different cells where there were duplicates, actually it means rows within this data. We&#39;ve got 738 unique values. Remember there were 760 rows, 759 plus title row, we got rid of 21, so left with 738. Click ok</li>
+<li>Got rid of the duplicate with David Adams in row 4. Check out Thomas Allens in 8 and 9. These are not duplicates if you look across the rows.  Control+end and zip to the bottom. You can see the end is row 739.</li>
+<li>There could be times when cleaning up the data, you don&#39;t necessarily want to get rid of this, you might want to create a new list, and that would help you identify which records were duplicated. Press Control + Z here.</li>
+<li>Data tab, choose Advanced</li>
+</ul>
+<p><img src="./img/104.png" alt=""></p>
+<ul>
+<li>Excel does figure out the extent of the list. if we want to create a new and unique list that does not have duplicates, we&#39;re going to be copying this list to another location, unique records only, we don&#39;t need a criteria range, but we need to copy it to a location, scroll to the right in cell M1, and simply put its upper left corner in cell M1, and click OK</li>
+<li>The list appearing in the far right of the sheet from M1 position will not have duplicate records in the list, if you zoom back a little bit and scroll right, you can see the new list.  Click to the end.</li>
+<li>The difference is we did not disrupt the initial list, we created a new list without duplicates, and sometimes that’s the approach you take. I think most people probably prefer, let&#39;s just get rid of the bad data and move on, and so the first way we used that feature, removing duplicates, is probably the one used most of the time, and relatively easy to use too, as we saw in this example.</li>
+</ul>
+<p><img src="./img/105.png" alt=""></p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
